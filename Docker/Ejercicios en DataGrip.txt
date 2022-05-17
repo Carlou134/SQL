@@ -1,0 +1,113 @@
+CREATE DATABASE test;
+
+DROP DATABASE test;
+
+USE test;
+
+CREATE TABLE persons
+(
+    id         int,
+    last_name  varchar(255),
+    first_name varchar(255),
+    adress     varchar(255),
+    city       varchar(255)
+)
+
+ALTER TABLE persons
+ADD telephono VARCHAR(9);
+
+ALTER TABLE persons
+DROP COLUMN city;
+
+ALTER TABLE persons
+ALTER COLUMN id VARCHAR(100);
+
+ALTER TABLE persons
+ALTER COLUMN id INT;
+
+DROP TABLE persons;
+
+CREATE TABLE persons
+(
+    id INT NOT NULL PRIMARY KEY ,
+    last_name VARCHAR(255) NOT NULL,
+    first_name VARCHAR (255),
+    age INT
+)
+
+DROP TABLE persons;
+
+CREATE TABLE persons
+(
+    id         int,
+    last_name  varchar(255),
+    first_name varchar(255),
+    adress     varchar(255),
+    city       varchar(255)
+)
+
+ALTER TABLE persons
+ALTER COLUMN id INT NOT NULL;
+
+ALTER TABLE persons
+ADD PRIMARY KEY(id);
+
+ALTER TABLE persons
+DROP CONSTRAINT PK_Persons;
+
+ALTER TABLE persons
+ADD CONSTRAINT PK_Persons PRIMARY KEY (id);
+
+CREATE TABLE orders
+(
+    id INT NOT NULL PRIMARY KEY,
+    order_number INT NOT NULL,
+    persons_id INT FOREIGN KEY REFERENCES persons(id)
+)
+
+
+CREATE DATABASE example;
+
+USE example;
+
+CREATE TABLE Agents
+(
+    id char(3) NOT NULL PRIMARY KEY,
+    name varchar(30) NOT NULL,
+    city varchar(30),
+    percentage TINYINT
+)
+
+DROP TABLE customers;
+
+CREATE TABLE customers
+(
+    id char(4) NOT NULL PRIMARY KEY,
+    name varchar(30) NOT NULL,
+    city varchar(30),
+    discount DECIMAL (4,2)
+)
+
+CREATE TABLE products
+(
+    id CHAR(4) NOT NULL PRIMARY KEY,
+    name VARCHAR(30) NOT NULL,
+    city VARCHAR(30),
+    quantity INT,
+    price MONEY,
+)
+
+CREATE TABLE orders
+(
+    id CHAR(4) NOT NULL PRIMARY KEY,
+    month CHAR (3) NOT NULL,
+    customer_id CHAR(4) NOT NULL,
+    agent_id CHAR(3) NOT NULL,
+    product_id CHAR(4) NOT NULL,
+    quantity INT,
+    price MONEY
+)
+
+ALTER TABLE orders
+ADD CONSTRAINT FK_CustomerOrder
+FOREIGN KEY (customer_id) REFERENCES customers(id);
