@@ -24,6 +24,12 @@ Condiciones que debe seguir las filas que estoy mostrando
 
 SELECT, FROM Y WHERE son aplicados para la sentencia base
 
+```SQL
+SELECT Dato
+FROM TABLE1
+WHERE DATO > 0
+```
+
 **GROUP BY**
 
 Agrupamientos de las tablas
